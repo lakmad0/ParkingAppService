@@ -11,11 +11,16 @@ namespace ParkingDataAccess
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class Slot
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public Nullable<int> PlaceId { get; set; }
+        [DataMember]
         public int FreeSlots { get; set; }
     
         public virtual Place Place { get; set; }

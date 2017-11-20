@@ -11,7 +11,9 @@ namespace ParkingDataAccess
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class Place
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,11 +22,17 @@ namespace ParkingDataAccess
             this.Slots = new HashSet<Slot>();
         }
     
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string PlaceName { get; set; }
+        [DataMember]
         public string Address { get; set; }
+        [DataMember]
         public double Longitude { get; set; }
+        [DataMember]
         public double Latitude { get; set; }
+        [DataMember]
         public int MaxSlots { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
