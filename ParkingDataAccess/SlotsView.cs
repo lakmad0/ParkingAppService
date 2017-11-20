@@ -12,12 +12,11 @@ namespace ParkingDataAccess
     using System;
     using System.Collections.Generic;
     
-    public partial class Slot
+    public partial class SlotsView
     {
         public int Id { get; set; }
+        public string PlaceName { get; set; }
         public Nullable<int> PlaceId { get; set; }
         public int FreeSlots { get; set; }
-    
-        public virtual Place Place { get; set; }
     }
 }

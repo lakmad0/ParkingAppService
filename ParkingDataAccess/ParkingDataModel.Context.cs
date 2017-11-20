@@ -27,5 +27,6 @@ namespace ParkingDataAccess
     
         public virtual DbSet<Place> Places { get; set; }
         public virtual DbSet<Slot> Slots { get; set; }
+        public virtual DbSet<SlotsView> SlotsViews { get; set; }
     }
 }

@@ -71,6 +71,9 @@
     <Compile Include="Slot.cs">
       <DependentUpon>ParkingDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SlotsView.cs">
+      <DependentUpon>ParkingDataModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="ParkingDataModel.edmx">
