@@ -21,7 +21,6 @@ namespace ParkingDataAccess
         {
             this.Slots = new HashSet<Slot>();
         }
-    
         [DataMember]
         public int Id { get; set; }
         [DataMember]

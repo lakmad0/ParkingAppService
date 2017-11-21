@@ -1,17 +1,15 @@
-﻿using System;
+﻿using ParkingDataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using ParkingDataAccess;
-
 
 namespace ParkingAppService.Controllers
 {
     public class PlacesController : ApiController
     {
-
         // GET: api/Places
         public IEnumerable<Place> Get()
         {
@@ -47,6 +45,14 @@ namespace ParkingAppService.Controllers
                 using (ParkingDBEntities entities = new ParkingDBEntities())
                 {
                     entities.Places.Add(place);
+                    entities.SaveChanges();
+
+                    //To add slots entry
+                    Slot slot = new Slot();
+                    slot.PlaceId = place.Id;
+                    slot.FreeSlots = place.MaxSlots;
+
+                    entities.Slots.Add(slot);
                     entities.SaveChanges();
 
                     var message = Request.CreateResponse(HttpStatusCode.Created, place);
@@ -101,15 +107,17 @@ namespace ParkingAppService.Controllers
             {
                 using (ParkingDBEntities entities = new ParkingDBEntities())
                 {
-                    var entity = entities.Places.FirstOrDefault<Place>(p => p.Id == id);
+                    var place = entities.Places.FirstOrDefault<Place>(p => p.Id == id);
+                    var slot = entities.Slots.FirstOrDefault<Slot>(p => p.PlaceId == id);
 
-                    if (entity == null)
+                    if (place == null || slot == null)
                     {
                         return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Place with id " + id + " not found to Delete.");
                     }
                     else
                     {
-                        entities.Places.Remove(entity);
+                        entities.Places.Remove(place);
+                        entities.Slots.Remove(slot);
                         entities.SaveChanges();
 
                         return Request.CreateResponse(HttpStatusCode.OK);

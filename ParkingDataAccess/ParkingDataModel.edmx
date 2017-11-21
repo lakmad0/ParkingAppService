@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ParkingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ParkingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Places">
           <Key>
             <PropertyRef Name="Id" />
@@ -64,7 +64,8 @@ warning 6002: The table/view 'ParkingDB.dbo.SlotsView' does not have a primary k
             <End Role="Slots" EntitySet="Slots" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ParkingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -89,6 +90,16 @@ warning 6002: The table/view 'ParkingDB.dbo.SlotsView' does not have a primary k
           <Property Name="FreeSlots" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Place" Relationship="Self.FK__Slots__PlaceId__398D8EEE" FromRole="Slots" ToRole="Places" />
         </EntityType>
+        <EntityType Name="SlotsView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="FreeSlots" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="PlaceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PlaceId" Type="Int32" />
+          <Property Name="FreeSlots" Type="Int32" Nullable="false" />
+        </EntityType>
         <Association Name="FK__Slots__PlaceId__398D8EEE">
           <End Role="Places" Type="Self.Place" Multiplicity="0..1" />
           <End Role="Slots" Type="Self.Slot" Multiplicity="*" />
@@ -104,22 +115,12 @@ warning 6002: The table/view 'ParkingDB.dbo.SlotsView' does not have a primary k
         <EntityContainer Name="ParkingDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Places" EntityType="Self.Place" />
           <EntitySet Name="Slots" EntityType="Self.Slot" />
+          <EntitySet Name="SlotsViews" EntityType="Self.SlotsView" />
           <AssociationSet Name="FK__Slots__PlaceId__398D8EEE" Association="Self.FK__Slots__PlaceId__398D8EEE">
             <End Role="Places" EntitySet="Places" />
             <End Role="Slots" EntitySet="Slots" />
           </AssociationSet>
-          <EntitySet Name="SlotsViews" EntityType="ParkingDBModel.SlotsView" />
         </EntityContainer>
-        <EntityType Name="SlotsView">
-          <Key>
-            <PropertyRef Name="Id" />
-            <PropertyRef Name="FreeSlots" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="PlaceName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="PlaceId" Type="Int32" />
-          <Property Name="FreeSlots" Type="Int32" Nullable="false" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -150,10 +151,10 @@ warning 6002: The table/view 'ParkingDB.dbo.SlotsView' does not have a primary k
           <EntitySetMapping Name="SlotsViews">
             <EntityTypeMapping TypeName="ParkingDBModel.SlotsView">
               <MappingFragment StoreEntitySet="SlotsView">
-                <ScalarProperty Name="FreeSlots" ColumnName="FreeSlots" />
-                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
-                <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PlaceName" ColumnName="PlaceName" />
+                <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+                <ScalarProperty Name="FreeSlots" ColumnName="FreeSlots" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

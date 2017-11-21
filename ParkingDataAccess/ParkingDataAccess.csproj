@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{976559D3-E2EC-4C26-A679-7076F724C7F0}</ProjectGuid>
+    <ProjectGuid>{A53684E4-A137-45DC-86AE-4F6CFF52A8BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ParkingDataAccess</RootNamespace>
@@ -82,9 +82,7 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="ParkingDataModel.edmx.diagram">
       <DependentUpon>ParkingDataModel.edmx</DependentUpon>

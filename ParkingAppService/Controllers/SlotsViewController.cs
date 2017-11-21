@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ParkingDataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using ParkingDataAccess;
 
 namespace ParkingAppService.Controllers
 {
@@ -36,6 +36,5 @@ namespace ParkingAppService.Controllers
                 }
             }
         }
-       
     }
 }

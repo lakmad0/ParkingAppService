@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fe5e836915d0498ab1e89351cf8d0cd9" Name="Diagram1">
+      <Diagram DiagramId="d8334a27f09b4344921d240279fe341d" Name="Diagram1">
         <EntityTypeShape EntityType="ParkingDBModel.Place" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ParkingDBModel.Slot" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ParkingDBModel.SlotsView" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="ParkingDBModel.FK__Slots__PlaceId__398D8EEE" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ParkingDBModel.SlotsView" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

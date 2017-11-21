@@ -1,10 +1,10 @@
-﻿using System;
+﻿using ParkingDataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using ParkingDataAccess;
 
 namespace ParkingAppService.Controllers
 {
@@ -74,7 +74,7 @@ namespace ParkingAppService.Controllers
                     }
                     else
                     {
-                        entity.FreeSlots= slot.FreeSlots;                  
+                        entity.FreeSlots = slot.FreeSlots;
 
                         entities.SaveChanges();
 
@@ -114,6 +114,6 @@ namespace ParkingAppService.Controllers
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
             }
-        }
+        }    
     }
 }

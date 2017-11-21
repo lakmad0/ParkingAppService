@@ -6,7 +6,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{4A99B9F2-9E2F-41A9-B451-DEBDCDAB2DF9}</ProjectGuid>
+    <ProjectGuid>{04E1BF35-7626-4100-ACC1-29191B421DB3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ParkingAppService.Tests</RootNamespace>
@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Controllers\ValuesControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -109,7 +110,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ParkingAppService\ParkingAppService.csproj">
-      <Project>{FEBA6AEC-4FD5-49C4-B2D7-AAFE19009AF1}</Project>
+      <Project>{024BE9FD-5FA1-48E5-9314-1D02AB2BD579}</Project>
       <Name>ParkingAppService</Name>
     </ProjectReference>
   </ItemGroup>
