@@ -8,6 +8,7 @@ using System.Web.Http;
 
 namespace ParkingAppService.Controllers
 {
+    [Authorize]
     public class PlacesController : ApiController
     {
         // GET: api/Places
